@@ -2,13 +2,10 @@ package com.example.ecommercedemo.model;
 
 import lombok.*;
 import lombok.experimental.SuperBuilder;
-import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.*;
 import java.util.HashSet;
 import java.util.Set;
-import java.util.UUID;
-import javax.persistence.Id;
 
 @AllArgsConstructor
 @NoArgsConstructor
@@ -18,11 +15,14 @@ import javax.persistence.Id;
 @SuperBuilder
 public class User {
 
-    @Id
+   /* @Id
     @GeneratedValue(generator = "UUID")
     @GenericGenerator(name = "UUID", strategy = "org.hibernate.id.UUIDGenerator")
-    private UUID id ;
+    private UUID id ;*/
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
     private String username;
     private String firstName;
     private String lastName;
